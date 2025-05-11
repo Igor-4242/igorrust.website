@@ -2,7 +2,8 @@
 
 
 body {
-    @apply flex flex-col bg-black p-0 m-0 text-white;
+    font-family: 'Montserrat', sans-serif;
+    @apply flex flex-col items-center bg-transparent p-0 m-0 text-white;
 }
 
 .hhero {
@@ -10,11 +11,13 @@ body {
 }
 
 h1 {
-    @apply text-3xl font-bold;
+    font-weight: 1000;
+    @apply text-[48px];
 }
 
 h2 {
-    @apply text-xl font-bold;
+    font-weight: 600;
+    @apply text-[20px];
 }
 
 a {
