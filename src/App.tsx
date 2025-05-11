@@ -1,69 +1,82 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import './styles.css'
 
-// 
-function App() {
-  // const [count, setCount] = useState(0)
-  const [count, setCount] = useState(0)
+export default // 
+  function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <section className="flex flex-row justify-center gap-[42px] py-12">
+        <a href="">
+          Quaein
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="">
+          Quaein
         </a>
-      </div>
+        <a href="">
+          Quaein
+        </a>
+        <a href="">
+          Quaein
+        </a>
+      </section>
 
-      <h1>Things used:</h1>
+      <section className='flex flex-row'>
 
-      <ul>
-        {['React', 'Vite', 'TailwindCSS', 'react-three-fiber'].map((tech, index) => (
-          <li key={index}>
-            <p>{tech}</p>
-          </li>
-        ))}
-      </ul>
+        <div>
+          <div className='h-[200px] w-[200px] bg-red-600 rounded-full' />
+        </div>
 
-      <div className="card">
-        {
-          count % 2 === 0 ? (
-            <p className='text-2xl font-bold text-red-600'>
-              count is {count}
-            </p>
-          ) : (
-            <p className='text-2xl font-bold text-green-600'>
-              count is {count}
-            </p>
-          )
-        }
+        <div>
 
-        <button onClick={() => setCount((count) => count + 1)}>
-          Increase
-        </button>
-        <button onClick={() => setCount((_) => 0)}>
-          Reset
-        </button>
-        <button onClick={() => setCount((count) => count - 1)}>
-          Decrease
-        </button>
+          {/* Igor */}
+          <div className='flex flex-col'>
+            <h1>Igor Boiko</h1>
+            <h1 className='text-right'>Rust Dev</h1>
+          </div>
 
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          {/* About */}
+          <div className='flex flex-col'>
+            <h2>About</h2>
+            <div className='flex flex-row'>
+              <div className='w-0 sm:w-[30%]'></div>
+              <p>
+                Quaead dolor vero libero alias quam? Velculpa dolores, quo iusto et sunt. Quaein lorem, unde totam odit, sed. Eveniettotam modi qui, ipsam, modi, tempore! Quaead dolor vero libero alias quam? Velculpa dolores, quo iusto et sunt. Quaein lorem, unde totam odit, sed. Eveniettotam modi qui, ipsam, modi, tempore!
+              </p>
+              <div className='w-0 sm:w-[30%]'></div>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div className='flex flex-col'>
+            <h2>Get in touch</h2>
+            <div className='flex flex-row self-end gap-x-4'>
+              <a href="">
+                Gmail
+              </a>
+              <a href="">
+                Linkedin
+              </a>
+              <a href="">
+                Github
+              </a>
+              <a href="">
+                Telegram
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </section >
+
+      <section className='flex flex-row justify-center py-12'>
+        <p className='w-full  sm:w-1/2 text-center'>
+          Quaead dolor vero libero alias quam? Velculpa dolores, quo iusto et sunt. Quaein lorem, unde totam odit, sed. Eveniettotam modi qui, ipsam, modi, tempore!
         </p>
-      </div>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </section>
 
     </>
   )
 }
 
-export default App

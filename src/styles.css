@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+
+body {
+    @apply flex flex-col bg-black p-0 m-0 text-white;
+}
+
+.hhero {
+    @apply text-4xl font-bold;
+}
+
+h1 {
+    @apply text-3xl font-bold;
+}
+
+h2 {
+    @apply text-xl font-bold;
+}
+
+a {
+    @apply text-white underline;
+    @apply hover:text-blue-600;
+}
