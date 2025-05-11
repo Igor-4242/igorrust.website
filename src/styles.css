@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    @apply flex flex-col items-center bg-transparent p-0 m-0 text-white;
+    @apply flex flex-col justify-center bg-transparent p-0 m-0 text-white;
 }
 
 .hhero {
