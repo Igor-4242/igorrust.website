@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './styles.css'
 
-export default // 
-  function App() {
+export default function App() {
+  // const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0)
 
   return (
     <>
