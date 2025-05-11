@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    @apply flex flex-col justify-center bg-transparent p-0 m-0 text-white;
+:root {
+    font-family: 'Montserrat', sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.hhero {
-    @apply text-4xl font-bold;
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    @apply flex flex-col justify-between items-center bg-transparent p-0 m-0 text-white;
 }
+
 
 h1 {
     font-weight: 1000;
@@ -23,4 +37,12 @@ h2 {
 a {
     @apply text-white underline;
     @apply hover:text-blue-600;
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
 }
