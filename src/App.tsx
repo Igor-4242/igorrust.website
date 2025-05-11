@@ -45,7 +45,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           Increase
         </button>
-        <button onClick={() => setCount((count) => 0)}>
+        <button onClick={() => setCount((_) => 0)}>
           Reset
         </button>
         <button onClick={() => setCount((count) => count - 1)}>
