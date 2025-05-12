@@ -1,11 +1,12 @@
+import * as math from './math';
+import * as three from './three';
 import './styles.css'
-import math from './math';
 
-export default function App() {
+export function App() {
 
   return (
     <>
-      <section className="flex flex-row top-0 w-full h-fit justify-center bg-yellow-500 gap-[10px] text-black">
+      <section id='DEMO_TODOLIST' className="absolute flex flex-row top-0 w-screen h-fit justify-center bg-yellow-500 gap-[10px] text-black">
         {
           [
             "TODO LIST:",
@@ -18,7 +19,8 @@ export default function App() {
         }
       </section>
 
-      <section className="flex flex-row w-full h-fit justify-center gap-[42px] py-12">
+
+      <section id='HEAD_LINKS' className="flex flex-row w-full h-fit justify-center gap-[42px] py-6">
         <a href="">
           Quaein
         </a>
@@ -31,8 +33,7 @@ export default function App() {
       </section>
 
 
-
-      <section className='flex flex-col w-full h-fit md:flex-row w-full max-w-[880px] gap-[5px] md:gap-[60px]'>
+      <section id='MAIN_INFO' className='flex flex-col w-full h-fit md:flex-row w-full max-w-[880px] gap-[5px] md:gap-[60px]'>
 
         <div className='flex flex-col w-full justify-center items-center p-[42px]'>
           <Circles />
@@ -81,10 +82,14 @@ export default function App() {
 
       </section >
 
-      <section className='flex flex-row w-full h-fit justify-center py-12'>
+      <section id='DESCRIPTION' className='flex flex-row w-full h-fit justify-center py-6'>
         <p className='w-full  sm:w-1/2 text-center'>
           Website made with React + TailwindCSS + Typescript + Vite + Three.js by Igor Boiko in 2025
         </p>
+      </section>
+
+      <section id='BACKGROUND_MAZE' className='z-[10000000] pointer-events-none w-screen h-screen absolute offset-0'>
+        <three.CanvasWithShaderedMaze />
       </section>
 
     </>
@@ -142,3 +147,6 @@ function Circles() {
     </div>
   );
 }
+
+
+
