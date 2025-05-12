@@ -5,6 +5,18 @@ export default function App() {
 
   return (
     <>
+      <section className="flex flex-row top-0 w-full h-fit justify-center bg-yellow-500 gap-[10px] text-black">
+        {
+          [
+            "TODO LIST:",
+            "three.js + shaders on the background",
+            "animations to circles",
+            "host on gitpages"
+          ].map((item, index) => {
+            return <p key={index} className='text-sm'>{index}: {item}</p>
+          })
+        }
+      </section>
 
       <section className="flex flex-row w-full h-fit justify-center gap-[42px] py-12">
         <a href="">
@@ -71,7 +83,7 @@ export default function App() {
 
       <section className='flex flex-row w-full h-fit justify-center py-12'>
         <p className='w-full  sm:w-1/2 text-center'>
-          Quaead dolor vero libero alias quam? Velculpa dolores, quo iusto et sunt. Quaein lorem, unde totam odit, sed. Eveniettotam modi qui, ipsam, modi, tempore!
+          Website made with React + TailwindCSS + Typescript + Vite + Three.js by Igor Boiko in 2025
         </p>
       </section>
 
@@ -105,8 +117,7 @@ function Circles() {
             width: `${base_radius}px`,
             height: `${base_radius}px`,
             zIndex: 10000,
-          }
-          }
+          }}
         />
       );
     } else {

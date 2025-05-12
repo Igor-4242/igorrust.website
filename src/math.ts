@@ -11,11 +11,11 @@ export default class math {
         (a: number, b: number, t: number): number =>
             a + t * (b - a);
 
-    static solveForC =
+    static solve_for_c =
         (a: number, b: number, d: number): number =>
             (a * d) / b;
 
-    static solveForD =
+    static solve_for_d =
         (a: number, b: number, c: number): number =>
             (b * c) / a;
 }
