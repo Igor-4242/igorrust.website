@@ -54,15 +54,15 @@ float get_random_float(float id, float seed) {
 // }
 
 void main() {
-    vec2 vuv = fract(vUv * 0.01);
+    // vec2 vuv = fract(vUv * 0.01);
 
-    vec2 random_per_cell = vec2(
-        get_random_float(trunc(vUv.x * 100.0 + uTime * 5.0),  1248.2154),
-        get_random_float(trunc(vUv.y * 100.0 + uTime * 5.0), 9485.0024)
-    );
+    // vec2 random_per_cell = vec2(
+    //     get_random_float(vUv.x * 100.0 + uTime * 5.0, 1248.2154),
+    //     get_random_float(trunc(vUv.y * 100.0 + uTime * 5.0), 9485.0024)
+    // );
 
-    random_per_cell = random_per_cell * 0.5;
+    // random_per_cell = random_per_cell * 0.5;
 
-	gl_FragColor = vec4(random_per_cell, 0.0, 1.0);
+	gl_FragColor = vec4(fract((vUv + vec2(uTime * 0.01, uTime * 0.01)) * 10.0), 0.0, 1.0);
 }
 

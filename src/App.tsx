@@ -10,41 +10,23 @@ export function App() {
     <>
 
 
-      <section id='DEMO_TODOLIST' className="absolute flex flex-row top-0 w-screen h-fit justify-center bg-yellow-500 gap-[10px] text-black">
-        {
-          [
-            "TODO LIST:",
-            "three.js + shaders on the background",
-            "animations to circles",
-            "host on gitpages"
-          ].map((item, index) => {
-            return <p key={index} className='text-sm'>{index}: {item}</p>
-          })
-        }
-      </section>
-
-      {/* 
-      <section className="fixed inset-0 overflow-hidden flex flex-col items-center justify-center">
-        <div className='flex-none size-[400px] bg-red-500'></div>
-        <div className='flex-none size-[400px] bg-green-500'></div>
-        <div className='flex-none size-[400px] bg-yellow-500'></div>
-      </section> */}
-
-
-      <section id={consts.HEAD_LINKS} className="flex flex-row w-full h-fit justify-center gap-[42px] py-6">
-        <a href="">
-          Quaein
-        </a>
-        <a href="">
-          Quaein
-        </a>
-        <a href="">
-          resume.pdf
-        </a>
+      <section
+        id={consts.HEAD_LINKS}
+        className="flex flex-row justify-center w-full h-fit">
+        <div className='sm:w-1/2 flex flex-row w-full h-fit justify-between gap-[42px] py-6'>
+          <a href="">
+            yeah
+          </a>
+          <a href="">
+            resume.pdf
+          </a>
+        </div>
       </section>
 
 
-      <section id={consts.MAIN_INFO} className='flex flex-col w-full h-fit md:flex-row w-full max-w-[880px] gap-[5px] md:gap-[60px]'>
+      <section
+        id={consts.MAIN_INFO}
+        className='flex flex-col w-full h-fit md:flex-row w-full max-w-[880px] gap-[5px] md:gap-[60px]'>
 
         <div className='flex flex-col w-full justify-center items-center p-[42px]'>
           <Circles />
@@ -52,13 +34,11 @@ export function App() {
 
         <div className='flex flex-col w-full gap-[28px]'>
 
-          {/* Igor */}
           <div className='flex flex-col gap-[6px]'>
             <h1>Igor Boiko</h1>
             <h1 className='text-right'>Rust Dev</h1>
           </div>
 
-          {/* About */}
           <div className='flex flex-col gap-[6px]'>
             <h2>About</h2>
             <div className='flex flex-row'>
@@ -70,20 +50,19 @@ export function App() {
             </div>
           </div>
 
-          {/* Contact */}
           <div className='flex flex-col gap-[6px]'>
             <h2>Get in touch</h2>
             <div className='flex flex-row self-end gap-x-4'>
-              <a href="">
+              <a href="mailto:igorboiko4242@gmail.com">
                 Gmail
               </a>
-              <a href="">
-                Linkedin
+              <a href="https://www.linkedin.com/in/igor-boiko-538524332/">
+                LinkedIn
               </a>
-              <a href="">
+              <a href="https://github.com/Igor-4242">
                 Github
               </a>
-              <a href="">
+              <a href="https://t.me/Igorfortytwofortytwo">
                 Telegram
               </a>
             </div>
@@ -93,7 +72,7 @@ export function App() {
 
 
       <section id={consts.DESCRIPTION} className='flex flex-row w-full h-fit justify-center py-6'>
-        <p className='w-full  sm:w-1/2 text-center'>
+        <p className='w-full sm:w-1/2 text-center'>
           Website made with React + TailwindCSS + Typescript + Vite + Three.js by Igor Boiko in 2025
         </p>
       </section>
@@ -110,7 +89,7 @@ export function App() {
 
 
 function Circles() {
-  const amount = 12;
+  const amount = 10;
   const base_radius = 200;
   const max_radius = 1000;
 

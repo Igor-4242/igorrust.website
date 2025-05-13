@@ -36,7 +36,6 @@ export function useSinAnimation({
 interface RotationConfig {
     amplitude: number;
     speed: number;
-
 }
 
 export function useRotationSin({
