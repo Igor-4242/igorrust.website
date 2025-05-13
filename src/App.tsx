@@ -1,6 +1,8 @@
 import * as math from './math';
 import * as three from './three';
+import * as consts from './consts';
 import './styles.css'
+
 
 export function App() {
 
@@ -20,7 +22,7 @@ export function App() {
       </section>
 
 
-      <section id='HEAD_LINKS' className="flex flex-row w-full h-fit justify-center gap-[42px] py-6">
+      <section id={consts.HEAD_LINKS} className="flex flex-row w-full h-fit justify-center gap-[42px] py-6">
         <a href="">
           Quaein
         </a>
@@ -33,7 +35,7 @@ export function App() {
       </section>
 
 
-      <section id='MAIN_INFO' className='flex flex-col w-full h-fit md:flex-row w-full max-w-[880px] gap-[5px] md:gap-[60px]'>
+      <section id={consts.MAIN_INFO} className='flex flex-col w-full h-fit md:flex-row w-full max-w-[880px] gap-[5px] md:gap-[60px]'>
 
         <div className='flex flex-col w-full justify-center items-center p-[42px]'>
           <Circles />
@@ -82,13 +84,13 @@ export function App() {
 
       </section >
 
-      <section id='DESCRIPTION' className='flex flex-row w-full h-fit justify-center py-6'>
+      <section id={consts.DESCRIPTION} className='flex flex-row w-full h-fit justify-center py-6'>
         <p className='w-full  sm:w-1/2 text-center'>
           Website made with React + TailwindCSS + Typescript + Vite + Three.js by Igor Boiko in 2025
         </p>
       </section>
 
-      <section id='BACKGROUND_MAZE' className='z-[10000000] pointer-events-none w-screen h-screen absolute offset-0'>
+      <section id={consts.BACKGROUND_MAZE} className='z-[-10000000] pointer-events-none w-screen h-screen absolute top-0 bottom-0 left-0 right-0'>
         <three.CanvasWithShaderedMaze />
       </section>
 

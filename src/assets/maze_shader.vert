@@ -1,4 +1,4 @@
-// #version 450 es
+// #version 450 core
 
 varying vec2 vUv;
 
