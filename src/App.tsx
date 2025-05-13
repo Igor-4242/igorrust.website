@@ -1,13 +1,15 @@
 import * as math from './math';
 import * as three from './three';
 import * as consts from './consts';
+import * as hooks from './hooks';
 import './styles.css'
-
 
 export function App() {
 
   return (
     <>
+
+
       <section id='DEMO_TODOLIST' className="absolute flex flex-row top-0 w-screen h-fit justify-center bg-yellow-500 gap-[10px] text-black">
         {
           [
@@ -20,6 +22,13 @@ export function App() {
           })
         }
       </section>
+
+      {/* 
+      <section className="fixed inset-0 overflow-hidden flex flex-col items-center justify-center">
+        <div className='flex-none size-[400px] bg-red-500'></div>
+        <div className='flex-none size-[400px] bg-green-500'></div>
+        <div className='flex-none size-[400px] bg-yellow-500'></div>
+      </section> */}
 
 
       <section id={consts.HEAD_LINKS} className="flex flex-row w-full h-fit justify-center gap-[42px] py-6">
@@ -79,10 +88,9 @@ export function App() {
               </a>
             </div>
           </div>
-
         </div>
-
       </section >
+
 
       <section id={consts.DESCRIPTION} className='flex flex-row w-full h-fit justify-center py-6'>
         <p className='w-full  sm:w-1/2 text-center'>
@@ -90,9 +98,11 @@ export function App() {
         </p>
       </section>
 
-      <section id={consts.BACKGROUND_MAZE} className='z-[-10000000] pointer-events-none w-screen h-screen absolute top-0 bottom-0 left-0 right-0'>
+
+      <section id={consts.BACKGROUND_MAZE} className='z-[-10000000] fixed inset-0'>
         <three.CanvasWithShaderedMaze />
       </section>
+
 
     </>
   )
@@ -105,12 +115,13 @@ function Circles() {
   const max_radius = 1000;
 
   let circles = [];
+  let main_circle = null;
 
   for (let i = 0; i <= amount; i++) {
     const radius = math.map_range(0, amount, i, base_radius, max_radius);
 
     if (i === amount) {
-      circles.push(
+      main_circle =
         <img
           rel="preload"
           src={`./igor_avatar.jpg`}
@@ -126,9 +137,14 @@ function Circles() {
             zIndex: 10000,
           }}
         />
-      );
     } else {
-      circles.push(
+      const yPos = hooks.useSinAnimation({
+        amplitude: math.map_range(0, amount, i, 0.0, 100.0),
+        speed: 0.0001,
+        offset: math.map_range(0, amount, i, 0.0, 5.0)
+      });
+
+      const circle =
         <div
           key={i}
           className={`${i % 2 === 0 ? "bg-black" : "bg-gray-500"} rounded-full absolute`}
@@ -136,16 +152,39 @@ function Circles() {
             width: `${radius}px`,
             height: `${radius}px`,
             zIndex: -i,
+            transform: `translateY(${yPos}px)`
           }}
-        />
-      );
+        />;
+
+      circles.push(circle);
     }
 
   }
 
+  // const rotation = hooks.useRotationSin({
+  //   amplitude: 90,
+  //   speed: 0.001
+  // });
+
+  const rotation = hooks.useRotationLinear({
+    amplitude: 1,
+    speed: 0.001
+  });
+
   return (
-    <div className={`z-[-1] flex h-[${base_radius}px] w-[${base_radius}px] relative justify-center items-center`}>
-      {circles}
+    <div
+      className={`z-[-1] flex h-[${base_radius}px] w-[${base_radius}px] relative justify-center items-center`}
+    >
+
+      {main_circle}
+      <div
+        className={`flex relative justify-center items-center`}
+        style={{
+          transform: `rotate(${rotation}deg)`
+        }}>
+        {circles}
+      </div>
+
     </div>
   );
 }

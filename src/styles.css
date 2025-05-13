@@ -18,6 +18,9 @@
 
 
 body {
+    position: relative;
+    margin: 0;
+
     min-width: 320px;
     min-height: 100vh;
     @apply flex flex-col justify-between items-center bg-transparent p-0 m-0 text-white;
