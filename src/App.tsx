@@ -10,15 +10,22 @@ export function App() {
     <>
 
 
+      <div className='bg-yellow-500 fixed top-0 left-0 right-0 flex flex-row items-center justify-center'>
+        <p className='text-black'>
+          website is under heavy construction (Tuesday 2025-05-13)
+        </p>
+      </div>
+
+
       <section
         id={consts.HEAD_LINKS}
         className="flex flex-row justify-center w-full h-fit">
         <div className='sm:w-1/2 flex flex-row w-full h-fit justify-between gap-[42px] py-6'>
-          <a href="">
-            yeah
-          </a>
-          <a href="">
-            resume.pdf
+          <div></div>
+          <a
+            href="https://drive.google.com/uc?export=download&id=1cITpguyPT2mg9zmB_bBTwl70a07ZMMRJ"
+          >
+            Download Resume
           </a>
         </div>
       </section>
@@ -35,8 +42,8 @@ export function App() {
         <div className='flex flex-col w-full gap-[28px]'>
 
           <div className='flex flex-col gap-[6px]'>
-            <h1>Igor Boiko</h1>
-            <h1 className='text-right'>Rust Dev</h1>
+            <h1 className='text-[48px]'>Igor Boiko</h1>
+            <h1 className='text-[38px] text-right text-blue-500'>Rust Teamlead & Developer</h1>
           </div>
 
           <div className='flex flex-col gap-[6px]'>
@@ -67,6 +74,7 @@ export function App() {
               </a>
             </div>
           </div>
+
         </div>
       </section >
 
@@ -126,12 +134,18 @@ function Circles() {
       const circle =
         <div
           key={i}
-          className={`${i % 2 === 0 ? "bg-black" : "bg-gray-500"} rounded-full absolute`}
+          className={`
+            ${i % 2 === 0 ? "bg-black" : "bg-gray-500"} 
+            rounded-full absolute
+            ${i % 2 === 0 ? "bg-gradient-to-b" : "bg-gradient-to-bl"} from-gray-900 to-gray-500 hover:to-gray-200
+            border-2 border-blue-400 border-offset-2
+            `}
           style={{
             width: `${radius}px`,
             height: `${radius}px`,
             zIndex: -i,
-            transform: `translateY(${yPos}px)`
+            transform: `translateY(${yPos}px)`,
+            opacity: math.map_range(0, amount, i, 1.0, 0.1)
           }}
         />;
 
@@ -147,7 +161,8 @@ function Circles() {
 
   const rotation = hooks.useRotationLinear({
     amplitude: 1,
-    speed: 0.001
+    speed: 0.001,
+    offset: 49.0
   });
 
   return (

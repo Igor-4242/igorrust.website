@@ -5,7 +5,7 @@ import maze_shader_vert from './assets/maze_shader.vert?raw';
 import maze_shader_frag from './assets/maze_shader.frag?raw';
 import './styles.css'
 
-function ShaderedMaze() {
+function ShaderedMazePlane() {
     const planeMeshRef = react.useRef<three.Mesh>(null!)
     const materialRef = react.useRef<three.ShaderMaterial>(null!)
     // fiber.useFrame((_, delta) => (planeMeshRef.current.rotation.z += delta * 2.0));
@@ -18,7 +18,7 @@ function ShaderedMaze() {
         <mesh
             ref={planeMeshRef}
         >
-            <planeGeometry args={[25, 25, 1]} />
+            <planeGeometry args={[30, 30, 1]} />
             <shaderMaterial
                 ref={materialRef}
                 vertexShader={maze_shader_vert}
@@ -42,7 +42,7 @@ export function CanvasWithShaderedMaze() {
             orthographic={true}
             camera={{ position: [0, 0, 100], zoom: 100 }}
         >
-            <ShaderedMaze />
+            <ShaderedMazePlane />
         </fiber.Canvas>
     )
 }

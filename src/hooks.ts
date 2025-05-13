@@ -36,6 +36,7 @@ export function useSinAnimation({
 interface RotationConfig {
     amplitude: number;
     speed: number;
+    offset: number;
 }
 
 export function useRotationSin({
@@ -64,7 +65,8 @@ export function useRotationSin({
 
 export function useRotationLinear({
     amplitude = 360,
-    speed = 1.0
+    speed = 1.0,
+    offset = 0.0
 }: RotationConfig): number {
     const [rotation, setRotation] = react.useState<number>(0);
 
@@ -73,7 +75,7 @@ export function useRotationLinear({
 
         const animate = () => {
             const elapsed = Date.now() - startTime;
-            const angle = amplitude * elapsed * speed;
+            const angle = amplitude * elapsed * speed + offset;
             setRotation(angle);
 
             requestAnimationFrame(animate);
