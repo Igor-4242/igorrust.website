@@ -10,17 +10,17 @@ export default defineConfig({
     react(),
     tailwindcss(),
     webfontDownload(),
-    ViteImageOptimizer({
-      png: {
-        quality: 90,
-      },
-      jpeg: {
-        quality: 90,
-      },
-      jpg: {
-        quality: 90,
-      },
-    }),
+    // ViteImageOptimizer({
+    //   png: {
+    //     quality: 90,
+    //   },
+    //   jpeg: {
+    //     quality: 90,
+    //   },
+    //   jpg: {
+    //     quality: 90,
+    //   },
+    // }),
   ],
   base: "/igorrust.xyz/",
 })
