@@ -16,21 +16,22 @@ export function useSinAnimation({
     react.useEffect(() => {
         const startTime = Date.now();
 
-        const animate = () => {
-            const elapsed = Date.now() - startTime;
+        const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
             const yPos = amplitude * Math.sin(elapsed * speed + offset);
-            setPosition(yPos);
 
+            setPosition(yPos);
             requestAnimationFrame(animate);
         };
 
-        const animationFrameId = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(animationFrameId);
-    }, [amplitude]);
+        requestAnimationFrame(animate);
 
+        return () => {
+            cancelAnimationFrame(requestAnimationFrame(animate));
+        };
+    }, [amplitude, speed, offset]);
     return position;
 }
-
 
 
 interface RotationConfig {
