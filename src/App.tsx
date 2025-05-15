@@ -3,92 +3,100 @@ import * as consts from './consts';
 import * as circles from './circles';
 import './styles.css'
 
+
 export function App() {
+
 
   return (
     <>
 
 
-      {/* <div className='bg-yellow-500 fixed top-0 left-0 right-0 flex flex-row items-center justify-center'>
-        <p className='text-black bg-yellow-500'>
-          website is under construction (wonky one is better than nothing)
-        </p>
-      </div> */}
-
-
       <section
         id={consts.HEAD_LINKS}
-        className="flex flex-row justify-center w-full h-fit">
-        <div className='sm:w-1/2 flex flex-row w-full h-fit justify-between gap-[42px] py-6'>
-          <p className='opacity-50 text-center'>
-            {/* website is under construction (wonky one is better than nothing) */}
-          </p>
-          <a
-            href="https://drive.google.com/uc?export=download&id=1cITpguyPT2mg9zmB_bBTwl70a07ZMMRJ"
-          >
-            Download Resume
-          </a>
+        className="flex flex-row w-full justify-center h-fit">
+        <div className='flex flex-col md:flex-row w-[90%] md:w-1/2 h-fit justify-between md:gap-[42px] gap-[6px] py-6'>
+
+          <div className='flex flex-row self-end md:self-start gap-x-4'>
+            <a href={consts.SOCIALS_LINKEDIN}>
+              LinkedIn
+            </a>
+            <a href={consts.SOCIALS_MAILTO}>
+              Gmail
+            </a>
+            <a href={consts.SOCIALS_GITHUB}>
+              Github
+            </a>
+            <a href={consts.SOCIALS_TELEGRAM}>
+              Telegram
+            </a>
+          </div>
+
+          <div className='self-end'>
+            <a href={consts.DOWNLOAD_PDF_RESUME} >
+              Download Resume
+            </a>
+          </div>
+
         </div>
       </section>
 
 
       <section
         id={consts.MAIN_INFO}
-        className='flex flex-col w-full h-fit md:flex-row w-full max-w-[880px] gap-[5px] md:gap-[60px]'>
+        className='flex flex-col md:flex-row w-full h-fit max-w-[1200px] gap-[5px] md:gap-[60px]'>
+
+        <div className='md:hidden flex h-[90px]'></div>
 
         <div className='flex flex-col w-full justify-center items-center p-[42px]'>
           <circles.Circles amount={10} radiusBase={200} radiusMax={1000} />
         </div>
 
-        <div className='flex flex-col w-full gap-[28px]'>
+        <div className='md:hidden flex h-[60px]'></div>
 
-          <div className='flex flex-col gap-[6px]'>
-            <h1 className='text-[48px]'>Igor Boiko</h1>
-            <h1 className='text-[38px] text-right text-blue-500'>Rust Teamlead & Developer</h1>
-          </div>
+        <div className='flex flex-col w-full justify-center items-center gap-[28px]'>
+          <div className='flex flex-col w-[90%] max-w-[550px] min-w-[0px] md:min-w-[440px] justify-center items-center gap-[28px]'>
 
-          <div className='flex flex-col gap-[6px]'>
-            <h2>About</h2>
-            <div className='flex flex-col justify-center items-center'>
-              <div className='w-[90%] sm:w-[80%] flex flex-col gap-2'>
-                <p >
-                  I code for 5+ years straight. Primarly in <span className='text-blue-500'>Rust</span> for cloud software and high-load microservices, but also proficient in <span className='text-blue-500'>C# & Unity</span> as well as many other things actually like <span className='text-blue-500'>React</span>, <span className='text-blue-500'>Kubernets</span>, etc...
-                </p>
-                <p >
-                  I have <span className='text-blue-500'>led</span> a team of four developers on a <span className='text-blue-500'>C# & Unity</span> project.
-                </p>
-                <p >
-                  For more information, please refer to my resume or check my LinkedIn profile.
-                </p>
+
+            <div className='flex flex-col w-full gap-[6px]'>
+              <a href={consts.SOCIALS_LINKEDIN}>
+                <h1 className='text-[48px] font-extrabold'>Igor Boiko</h1>
+              </a>
+              <h1 className='text-[38px] text-right text-yellow-600'>Senior Rust Developer & Teamlead</h1>
+            </div>
+
+            <div className='flex flex-col w-full gap-[6px]'>
+              <h2>About</h2>
+              <div className='flex flex-col justify-center items-center'>
+                <div className='w-[80%] flex flex-col gap-2'>
+                  <p >
+                    🪐 I'm a <span className='p_acc'>Rust</span> developer for 4.5+ years specializing in high-loaded distributed cloud applications built with microservices.
+                  </p>
+                  <p >
+                    🪄 My technical expertise spans from low-level wizzardry like <span className='p_acc'>C++</span> programming and <span className='p_acc'>embeded Rust</span> to hgier order magical concepts like <span className='p_acc'>lambda calculus</span> and <span className='p_acc'>type theory</span>.
+                  </p>
+                  <p >
+                    🎓 <span className='p_acc'>Led</span> Unity & C# team of 4 developers for 3+ years, onboarded and mentored new developers.
+                  </p>
+                  {Math.random() > 0.5 && (
+                    <p >
+                      🍴 I've eaten a crab writing microservices.
+                    </p>
+                  )}
+                  <p >
+                    ✨ For more information, please refer to my <a className='a p_acc' href={consts.DOWNLOAD_PDF_RESUME}>resume</a> or check my <a className='a p_acc' href={consts.SOCIALS_LINKEDIN}>LinkedIn</a> profile.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className='flex flex-col gap-[6px]'>
-            <h2>Get in touch</h2>
-            <div className='flex flex-row self-end gap-x-4'>
-              <a href="mailto:igorboiko4242@gmail.com">
-                Gmail
-              </a>
-              <a href="https://www.linkedin.com/in/igor-boiko-538524332/">
-                LinkedIn
-              </a>
-              <a href="https://github.com/Igor-4242">
-                Github
-              </a>
-              <a href="https://t.me/Igorfortytwofortytwo">
-                Telegram
-              </a>
-            </div>
           </div>
-
         </div>
       </section >
 
 
       <section id={consts.DESCRIPTION} className='flex flex-row w-full h-fit justify-center py-6'>
-        <p className='w-[95%] sm:w-1/2 text-center opacity-70'>
-          The website was made by me using React, TailwindCSS, TypeScript, Vite, and Three.js.
+        <p className='w-[90%] md:w-1/2 text-center opacity-70'>
+          The website was made by me on a weekend using React, TailwindCSS, TypeScript, Vite, and Three.js.
         </p>
       </section>
 

@@ -18,16 +18,15 @@
 
 
 body {
-    min-width: 320px;
+    min-width: 375px;
     min-height: 100vh;
-    /* @apply flex flex-col justify-between items-center bg-transparent p-0 m-0 text-white; */
-    @apply fixed inset-0 overflow-hidden flex flex-col items-center justify-between;
+    @apply flex flex-col items-center justify-between;
+    @apply overflow-x-hidden md:overflow-hidden;
 }
 
 
 h1 {
     font-weight: 1000;
-    /* @apply text-[48px]; */
 }
 
 h2 {
@@ -36,8 +35,36 @@ h2 {
 }
 
 a {
-    @apply text-white underline;
-    @apply hover:text-blue-600;
+    @apply underline;
+    @apply hover:text-yellow-400 hover:cursor-pointer;
+}
+
+.a {
+    @apply underline;
+    @apply hover:text-yellow-400 hover:cursor-pointer;
+}
+
+p {
+    @apply text-gray-300;
+}
+
+.p_acc {
+    @apply text-yellow-600;
+}
+
+::selection {
+    background-color: orange;
+    color: black;
+}
+
+::-moz-selection {
+    background-color: orange;
+    color: black;
+}
+
+::-webkit-selection {
+    background-color: orange;
+    color: black;
 }
 
 
