@@ -7,4 +7,5 @@ client.createRoot(document.getElementById('root')!).render(
   <react.StrictMode>
     <app.App />
   </react.StrictMode>,
+  // <app.App />,
 )
