@@ -1,4 +1,4 @@
-import * as three from './three';
+// import * as three from './three';
 import * as consts from './consts';
 import * as circles from './circles';
 import './styles.css'

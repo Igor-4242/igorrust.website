@@ -10,17 +10,20 @@ export default defineConfig({
     react(),
     tailwindcss(),
     webfontDownload(),
-    // ViteImageOptimizer({
-    //   png: {
-    //     quality: 90,
-    //   },
-    //   jpeg: {
-    //     quality: 90,
-    //   },
-    //   jpg: {
-    //     quality: 90,
-    //   },
-    // }),
+    ViteImageOptimizer({
+      png: {
+        quality: 90,
+      },
+      jpeg: {
+        quality: 90,
+      },
+      jpg: {
+        quality: 90,
+      },
+    }),
   ],
-  base: "/igorrust.xyz/",
+  base: "/Igor-4242.github.io/",
+  build: {
+    outDir: 'D:/PR/card_website/Igor-4242.github.io',
+  }
 })

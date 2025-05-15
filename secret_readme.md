@@ -1,1 +1,0 @@
-1. there was "tsc -b " in build command but i`ve removed it
