@@ -6,7 +6,7 @@ interface AnimationConfig {
     offset: number;
 }
 
-export function use_sin_animation({
+export function use_animation_sin({
     amplitude = 20,
     speed = 1.0,
     offset = 0

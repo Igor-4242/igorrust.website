@@ -64,7 +64,7 @@ export function Circles({
                     Array.from({ length: amount }).map((_, i) => {
                         const radius = math.map_range(0, amount, i, radiusBase, radiusMax);
 
-                        const y_position = hooks.use_sin_animation({
+                        const y_position = hooks.use_animation_sin({
                             amplitude: math.map_range(0, amount, i, 0.0, 100.0),
                             speed: 0.0001,
                             offset: math.map_range(0, amount, i, 0.0, 5.0) + initial_sin_offset
