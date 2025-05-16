@@ -13,12 +13,12 @@ const initial_sin_offset = Math.random() * 360;
 const initial_rotation = Math.random() * 360;
 
 function uses_position_y_sin(amount: number) {
-    const frame = hooks.use_tick_frame();
+    const frame = hooks.use_animation_linear_default();
     return react.useMemo(() => {
         return Array.from({ length: amount }).map((_, index) => {
             const amplitude = math.map_range(0, amount, index, 0.0, 100.0);
             const offset = math.map_range(0, amount, index, 0.0, 5.0) + initial_sin_offset;
-            const speed = 0.01;
+            const speed = 0.0001;
             const y = amplitude * Math.sin((frame * speed) + offset);
             return y;
         });
@@ -30,7 +30,7 @@ export function Circles({
     radiusBase = 200,
     radiusMax = 1000
 }: CircleConfig) {
-    const rotation = hooks.use_linear_rotation(0.1, initial_rotation);
+    const rotation = hooks.use_animation_linear(0.005, initial_rotation);
     const y_positions = uses_position_y_sin(amount);
 
     const circles = react.useMemo(() => {
@@ -64,7 +64,7 @@ export function Circles({
         >
 
             <img
-                // rel="preload"
+                rel="preload"
                 src={`./igor_avatar.jpg`}
                 className={`rounded-full absolute`}
                 style={{
