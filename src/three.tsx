@@ -1,9 +1,9 @@
-import * as three from 'three'
-import * as react from 'react'
-import * as fiber from '@react-three/fiber'
-import maze_shader_vert from './assets/maze_shader.vert?raw';
-import maze_shader_frag from './assets/maze_shader.frag?raw';
 import './styles.css'
+import * as fiber from '@react-three/fiber'
+import * as react from 'react'
+import * as three from 'three'
+import maze_shader_frag from './assets/maze_shader.frag?raw';
+import maze_shader_vert from './assets/maze_shader.vert?raw';
 
 function ShaderedMazePlane() {
     const planeMeshRef = react.useRef<three.Mesh>(null!)
