@@ -20,12 +20,12 @@ export function use_animation_linear_default(): number {
     return value;
 }
 
-export function use_animation_linear(
-    speed = 0.05,
-    offset = 0
-) {
-    const frame = use_animation_linear_default();
-    return (offset + frame) * speed;
-}
+// export function use_animation_linear(
+//     speed = 0.05,
+//     offset = 0
+// ) {
+//     const frame = use_animation_linear_default();
+//     return (offset + frame) * speed;
+// }
 
 

@@ -1,8 +1,10 @@
+import * as fn from 'fp-ts/function'
+import * as option from "fp-ts/lib/Option"
 import * as record from "./record"
 import * as types from "./types"
 
 export interface RecordCardProps {
-    logo: types.FilePath,
+    logo: option.Option<types.FilePath>,
     what: record.Record,
     when: record.Record,
     where: record.Record,
@@ -10,10 +12,22 @@ export interface RecordCardProps {
 };
 
 export function RecordCard({
-    logo, what, when, where, how
+    logo,
+    what,
+    when,
+    where,
+    how
 }: RecordCardProps) {
     return <div className="flex flex-col gap-2">
-        <img src={logo} alt={logo} />
+        {
+            fn.pipe(
+                logo,
+                option.match(
+                    () => <></>,
+                    logo => <img src={logo} alt={logo} />
+                )
+            )
+        }
         <div className="flex flex-row">
             <h2>what:</h2>
             {

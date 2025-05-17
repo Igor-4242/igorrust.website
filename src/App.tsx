@@ -1,7 +1,7 @@
-// import * as three from './three';
-import * as consts from './consts';
-import * as circles from './circles';
 import './styles.css'
+import * as circles from './circles';
+import * as consts from './consts';
+// import * as three from './three';
 
 
 export function App() {

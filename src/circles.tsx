@@ -1,7 +1,8 @@
-import * as math from './math';
-import * as hooks from './hooks';
-import * as react from 'react';
 import './styles.css';
+import * as hooks from './hooks';
+import * as math from './math';
+import * as react from 'react';
+import * as state from './state';
 
 interface CircleConfig {
     amount: number;
@@ -13,7 +14,7 @@ const initial_sin_offset = Math.random() * 360;
 const initial_rotation = Math.random() * 360;
 
 function uses_position_y_sin(amount: number) {
-    const frame = hooks.use_animation_linear_default();
+    const frame = state.use_state_context().frame;
     return react.useMemo(() => {
         return Array.from({ length: amount }).map((_, index) => {
             const amplitude = math.map_range(0, amount, index, 0.0, 100.0);
@@ -30,7 +31,7 @@ export function Circles({
     radiusBase = 200,
     radiusMax = 1000
 }: CircleConfig) {
-    const rotation = hooks.use_animation_linear(0.005, initial_rotation);
+    const rotation = state.use_state_context().frame * 0.005 + initial_rotation;
     const y_positions = uses_position_y_sin(amount);
 
     const circles = react.useMemo(() => {
