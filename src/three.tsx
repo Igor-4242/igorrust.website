@@ -8,10 +8,24 @@ import maze_shader_vert from './assets/maze_shader.vert?raw';
 function ShaderedMazePlane() {
     const planeMeshRef = react.useRef<three.Mesh>(null!)
     const materialRef = react.useRef<three.ShaderMaterial>(null!)
-    // fiber.useFrame((_, delta) => (planeMeshRef.current.rotation.z += delta * 2.0));
+    // const mousePosition = react.useRef<three.Vector2>(new three.Vector2(0, 0))
+
+    // react.useEffect(() => {
+    //     const handleMouseMove = (event: any) => {
+    //         mousePosition.current.x = event.clientX
+    //         mousePosition.current.y = event.clientY
+    //     }
+
+    //     window.addEventListener('mousemove', handleMouseMove)
+    //     return () => window.removeEventListener('mousemove', handleMouseMove)
+    // }, [])
+
 
     fiber.useFrame((state, _delta) => {
+        const { width, height } = state.size;
+
         materialRef.current.uniforms.uTime.value = state.clock.getElapsedTime()
+        materialRef.current.uniforms.uResolution.value = new three.Vector2(width, height)
     })
 
     return (
@@ -24,7 +38,9 @@ function ShaderedMazePlane() {
                 vertexShader={maze_shader_vert}
                 fragmentShader={maze_shader_frag}
                 uniforms={{
-                    uTime: { value: 0 }
+                    uTime: { value: 0 },
+                    uMouse: { value: new three.Vector2(0, 0) },
+                    uResolution: { value: new three.Vector2(400.0, 400.0) },
                 }}
             />
         </mesh>
@@ -32,11 +48,12 @@ function ShaderedMazePlane() {
 }
 
 
-export function CanvasWithShaderedMaze() {
+export function CanvasWithShaderedWaves() {
     return (
         <fiber.Canvas
             gl={{
-                antialias: true,
+                antialias: false,
+                depth: false,
             }}
             shadows={false}
             orthographic={true}

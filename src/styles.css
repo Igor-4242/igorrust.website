@@ -74,38 +74,3 @@ p {
         background-color: #ffffff;
     }
 }
-
-@keyframes sineWave {
-
-    0%,
-    100% {
-        transform: translateY(20px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.animate-sine-wave {
-    animation: sineWave 2s ease-in-out infinite;
-}
-
-.animate-sine-wave-offset {
-    animation: sineWave 2s ease-in-out infinite;
-    animation-delay: var(--sin-offset, 0ms);
-}
-
-.animate-rotate-continuous {
-    animation: rotate 38s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}

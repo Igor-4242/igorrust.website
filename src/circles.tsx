@@ -1,8 +1,6 @@
 import './styles.css';
-import * as hooks from './hooks';
 import * as math from './math';
 import * as react from 'react';
-import * as state from './state';
 
 interface CircleConfig {
     amount: number;
@@ -10,53 +8,41 @@ interface CircleConfig {
     radiusMax: number;
 }
 
-const initial_sin_offset = Math.random() * 360;
-const initial_rotation = Math.random() * 360;
-
-function uses_position_y_sin(amount: number) {
-    const frame = state.use_state_context().frame;
-    return react.useMemo(() => {
-        return Array.from({ length: amount }).map((_, index) => {
-            const amplitude = math.map_range(0, amount, index, 0.0, 100.0);
-            const offset = math.map_range(0, amount, index, 0.0, 5.0) + initial_sin_offset;
-            const speed = 0.0001;
-            const y = amplitude * Math.sin((frame * speed) + offset);
-            return y;
-        });
-    }, [amount, frame]);
-}
-
 export function Circles({
     amount = 10,
     radiusBase = 200,
     radiusMax = 1000
 }: CircleConfig) {
-    const rotation = state.use_state_context().frame * 0.005 + initial_rotation;
-    const y_positions = uses_position_y_sin(amount);
 
-    const circles = react.useMemo(() => {
-        return Array.from({ length: amount }).map((_, i) => {
+    const circles =
+        Array.from({ length: amount }).map((_, i) => {
             const radius = math.map_range(0, amount, i, radiusBase, radiusMax);
+            const bounce_offset_up = math.map_range(0, amount, i, 0, 180);
+            const bounce_animation_delay = math.map_range(0, amount, i, -50, 0);
+            const bounce_animation_cycle = 16.478 * 2.0 * 2.0;
             return (
                 <div
                     key={i}
                     className={`
-                        ${i % 2 === 0 ? "bg-black" : "bg-gray-500"} 
+                        circles_styles_bounce
                         rounded-full absolute
                         ${i % 2 === 0 ? "bg-gradient-to-b" : "bg-gradient-to-bl"} from-gray-900 to-gray-500 
-                        border-2 border-blue-400 border-offset-2
+                        border-2 border-[748fa4] border-offset-2
                     `}
                     style={{
+                        // @ts-ignore
+                        '--bounce-offset-up': `${bounce_offset_up}px`,
+                        '--bounce-animation-delay': `${bounce_animation_delay}s`,
+                        '--bounce-animation-cycle': `${bounce_animation_cycle}s`,
                         width: `${radius}px`,
                         height: `${radius}px`,
                         zIndex: -i,
-                        transform: `translateY(${y_positions[i]}px)`,
                         opacity: math.map_range(0, amount, i, 1.0, 0.1),
                     }}
                 />
             );
         });
-    }, [amount, radiusBase, radiusMax, y_positions]);
+
 
 
     return (
@@ -65,9 +51,12 @@ export function Circles({
         >
 
             <img
+                className={`
+                    rounded-full absolute
+                    border-2 border-[748fa4] border-offset-2
+                `}
                 rel="preload"
                 src={`./igor_avatar.jpg`}
-                className={`rounded-full absolute`}
                 style={{
                     minWidth: `${radiusBase}px`,
                     minHeight: `${radiusBase}px`,
@@ -80,15 +69,13 @@ export function Circles({
             />
 
             <div
-                className={`flex relative justify-center items-center`}
-                style={{
-                    transform: `rotate(${rotation}deg)`
-                }}>
+                className={`circles_styles_rotate_01 flex relative justify-center items-center`}
+            >
 
                 {circles}
 
             </div>
 
-        </div>
+        </div >
     );
 }
